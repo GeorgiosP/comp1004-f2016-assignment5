@@ -81,6 +81,8 @@ namespace SlotMachine
             lossNumber = 0;
             winRatio = 0.0f;
 
+            JackpotTextBox.Text = jackpot.ToString();
+            WinnerPaidTextBox.Text = "";
             ReelOnePictureBox.Image = Properties.Resources.blank;
             ReelTwoPictureBox.Image = Properties.Resources.blank;
             ReelThreePictureBox.Image = Properties.Resources.blank;
@@ -97,6 +99,7 @@ namespace SlotMachine
                 MessageBox.Show("You Won the $" + jackpot + " Jackpot!!","Jackpot!!");
                 playerMoney += jackpot;
                 jackpot = 1000;
+                JackpotTextBox.Text = jackpot.ToString();
             }
         }
 
@@ -104,7 +107,8 @@ namespace SlotMachine
         private void showWinMessage()
         {
             playerMoney += winnings;
-            MessageBox.Show("You Won: $" + winnings, "Winner!");
+           // MessageBox.Show("You Won: $" + winnings, "Winner!");
+            WinnerPaidTextBox.Text = "Winner $" + winnings.ToString();
             resetFruitTally();
             checkJackPot();
         }
@@ -113,7 +117,8 @@ namespace SlotMachine
         private void showLossMessage()
         {
             playerMoney -= playerBet;
-            MessageBox.Show("You Lost!", "Loss!");
+           // MessageBox.Show("You Lost!", "Loss!");
+            WinnerPaidTextBox.Text = "Loss";
             resetFruitTally();
         }
 
@@ -266,41 +271,44 @@ namespace SlotMachine
 
         private void SpinPictureBox_Click(object sender, EventArgs e)
         {
-            if (playerBet == 0){
-                checkFunds(10); 
-            }
-            else 
-            
-
-            if (playerMoney == 0)
+            if (playerBet == 0)
             {
-                if (MessageBox.Show("You ran out of Money! \nDo you want to play again?","Out of Money!",MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    resetAll();
-                    showPlayerStats();
-                }
-            }
-            else if (playerBet > playerMoney)
-            {
-                MessageBox.Show("You don't have enough Money to place that bet.", "Insufficient Funds");
-            }
-            else if (playerBet < 0)
-            {
-                MessageBox.Show("All bets must be a positive $ amount.", "Incorrect Bet");
-            }
-            else if (playerBet <= playerMoney)
-            {
-                spinResult = Reels();
-                determineWinnings();
-                turn++;
-                TotalCreditsTextBox.Text = playerMoney.ToString();
-                BetTextBox.Text = "0";
-                playerBet = 0; 
-                
+                checkFunds(10);
             }
             else
             {
-                MessageBox.Show("Please enter a valid bet amount");
+
+
+                if (playerMoney == 0)
+                {
+                    if (MessageBox.Show("You ran out of Money! \nDo you want to play again?", "Out of Money!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        resetAll();
+                        showPlayerStats();
+                    }
+                }
+                else if (playerBet > playerMoney)
+                {
+                    MessageBox.Show("You don't have enough Money to place that bet.", "Insufficient Funds");
+                }
+                else if (playerBet < 0)
+                {
+                    MessageBox.Show("All bets must be a positive $ amount.", "Incorrect Bet");
+                }
+                else if (playerBet <= playerMoney)
+                {
+                    spinResult = Reels();
+                    determineWinnings();
+                    turn++;
+                    TotalCreditsTextBox.Text = playerMoney.ToString();
+                    BetTextBox.Text = "0";
+                    playerBet = 0;
+
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid bet amount");
+                }
             }
         }
 
