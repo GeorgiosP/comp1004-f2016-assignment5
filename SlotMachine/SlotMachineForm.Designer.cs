@@ -43,6 +43,7 @@
             this.JackpotTextBox = new System.Windows.Forms.TextBox();
             this.ResetBetButton = new System.Windows.Forms.Button();
             this.ExitPictureBox = new System.Windows.Forms.PictureBox();
+            this.ViewStatsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SpinPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReelOnePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReelThreePictureBox)).BeginInit();
@@ -218,12 +219,25 @@
             this.ExitPictureBox.TabStop = false;
             this.ExitPictureBox.Click += new System.EventHandler(this.ExitPictureBox_Click);
             // 
+            // ViewStatsButton
+            // 
+            this.ViewStatsButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ViewStatsButton.ForeColor = System.Drawing.Color.Black;
+            this.ViewStatsButton.Location = new System.Drawing.Point(362, 0);
+            this.ViewStatsButton.Name = "ViewStatsButton";
+            this.ViewStatsButton.Size = new System.Drawing.Size(102, 27);
+            this.ViewStatsButton.TabIndex = 21;
+            this.ViewStatsButton.Text = "View Stats";
+            this.ViewStatsButton.UseVisualStyleBackColor = false;
+            this.ViewStatsButton.Click += new System.EventHandler(this.ViewStatsButton_Click);
+            // 
             // SlotMachineForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(462, 533);
+            this.Controls.Add(this.ViewStatsButton);
             this.Controls.Add(this.ExitPictureBox);
             this.Controls.Add(this.ResetBetButton);
             this.Controls.Add(this.JackpotTextBox);
@@ -278,5 +292,6 @@
         private System.Windows.Forms.TextBox JackpotTextBox;
         private System.Windows.Forms.Button ResetBetButton;
         private System.Windows.Forms.PictureBox ExitPictureBox;
+        private System.Windows.Forms.Button ViewStatsButton;
     }
 }

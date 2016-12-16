@@ -129,6 +129,9 @@ namespace SlotMachine
         private string[] Reels()
         {
             string[] betLine = { " ", " ", " " };
+            /* Create an Array of the reel picture boxes for when I run it through the for loop 
+            so I can dynamically populate each one with the correct image 
+            I was really excited that I was able todo this. P.S*/
             PictureBox[] reel = { ReelOnePictureBox, ReelTwoPictureBox, ReelThreePictureBox };
             int[] outCome = { 0, 0, 0 };
 
@@ -263,6 +266,10 @@ namespace SlotMachine
 
         private void SpinPictureBox_Click(object sender, EventArgs e)
         {
+            if (playerBet == 0){
+                checkFunds(10); 
+            }
+            else 
             
 
             if (playerMoney == 0)
@@ -289,7 +296,7 @@ namespace SlotMachine
                 TotalCreditsTextBox.Text = playerMoney.ToString();
                 BetTextBox.Text = "0";
                 playerBet = 0; 
-                showPlayerStats();
+                
             }
             else
             {
@@ -368,6 +375,11 @@ namespace SlotMachine
             {
                 Application.Exit();
             }
+        }
+
+        private void ViewStatsButton_Click(object sender, EventArgs e)
+        {
+            showPlayerStats();
         }
     }
 
