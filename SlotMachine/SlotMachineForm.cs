@@ -361,6 +361,14 @@ namespace SlotMachine
                 BetTextBox.Text = playerBet.ToString();
             }
         }
+
+        private void ExitPictureBox_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are You Sure?", "Are you sure you want to exit?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 
 }

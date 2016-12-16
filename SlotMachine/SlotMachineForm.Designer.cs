@@ -42,6 +42,7 @@
             this.BetTenPictureBox = new System.Windows.Forms.PictureBox();
             this.JackpotTextBox = new System.Windows.Forms.TextBox();
             this.ResetBetButton = new System.Windows.Forms.Button();
+            this.ExitPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.SpinPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReelOnePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReelThreePictureBox)).BeginInit();
@@ -51,13 +52,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.BetOnePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BetHundredPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BetTenPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExitPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // SpinPictureBox
             // 
             this.SpinPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.SpinPictureBox.Image = global::SlotMachine.Properties.Resources.spin;
-            this.SpinPictureBox.Location = new System.Drawing.Point(366, 436);
+            this.SpinPictureBox.Location = new System.Drawing.Point(355, 441);
             this.SpinPictureBox.Name = "SpinPictureBox";
             this.SpinPictureBox.Size = new System.Drawing.Size(60, 50);
             this.SpinPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -99,7 +101,7 @@
             // 
             this.ResetPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.ResetPictureBox.Image = global::SlotMachine.Properties.Resources.reset;
-            this.ResetPictureBox.Location = new System.Drawing.Point(41, 436);
+            this.ResetPictureBox.Location = new System.Drawing.Point(297, 441);
             this.ResetPictureBox.Name = "ResetPictureBox";
             this.ResetPictureBox.Size = new System.Drawing.Size(60, 50);
             this.ResetPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -156,7 +158,7 @@
             // BetOnePictureBox
             // 
             this.BetOnePictureBox.Image = global::SlotMachine.Properties.Resources.bet1;
-            this.BetOnePictureBox.Location = new System.Drawing.Point(133, 441);
+            this.BetOnePictureBox.Location = new System.Drawing.Point(55, 441);
             this.BetOnePictureBox.Name = "BetOnePictureBox";
             this.BetOnePictureBox.Size = new System.Drawing.Size(47, 45);
             this.BetOnePictureBox.TabIndex = 15;
@@ -166,7 +168,7 @@
             // BetHundredPictureBox
             // 
             this.BetHundredPictureBox.Image = global::SlotMachine.Properties.Resources.bet100;
-            this.BetHundredPictureBox.Location = new System.Drawing.Point(283, 441);
+            this.BetHundredPictureBox.Location = new System.Drawing.Point(157, 441);
             this.BetHundredPictureBox.Name = "BetHundredPictureBox";
             this.BetHundredPictureBox.Size = new System.Drawing.Size(47, 45);
             this.BetHundredPictureBox.TabIndex = 16;
@@ -176,7 +178,7 @@
             // BetTenPictureBox
             // 
             this.BetTenPictureBox.Image = global::SlotMachine.Properties.Resources.bet10;
-            this.BetTenPictureBox.Location = new System.Drawing.Point(208, 441);
+            this.BetTenPictureBox.Location = new System.Drawing.Point(106, 441);
             this.BetTenPictureBox.Name = "BetTenPictureBox";
             this.BetTenPictureBox.Size = new System.Drawing.Size(47, 45);
             this.BetTenPictureBox.TabIndex = 17;
@@ -204,12 +206,25 @@
             this.ResetBetButton.UseVisualStyleBackColor = false;
             this.ResetBetButton.Click += new System.EventHandler(this.ResetBetButton_Click);
             // 
+            // ExitPictureBox
+            // 
+            this.ExitPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.ExitPictureBox.Image = global::SlotMachine.Properties.Resources.powerbutton;
+            this.ExitPictureBox.Location = new System.Drawing.Point(239, 441);
+            this.ExitPictureBox.Name = "ExitPictureBox";
+            this.ExitPictureBox.Size = new System.Drawing.Size(60, 50);
+            this.ExitPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ExitPictureBox.TabIndex = 20;
+            this.ExitPictureBox.TabStop = false;
+            this.ExitPictureBox.Click += new System.EventHandler(this.ExitPictureBox_Click);
+            // 
             // SlotMachineForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(462, 533);
+            this.Controls.Add(this.ExitPictureBox);
             this.Controls.Add(this.ResetBetButton);
             this.Controls.Add(this.JackpotTextBox);
             this.Controls.Add(this.BetTenPictureBox);
@@ -241,6 +256,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BetOnePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BetHundredPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BetTenPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExitPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +277,6 @@
         private System.Windows.Forms.PictureBox BetTenPictureBox;
         private System.Windows.Forms.TextBox JackpotTextBox;
         private System.Windows.Forms.Button ResetBetButton;
+        private System.Windows.Forms.PictureBox ExitPictureBox;
     }
 }
