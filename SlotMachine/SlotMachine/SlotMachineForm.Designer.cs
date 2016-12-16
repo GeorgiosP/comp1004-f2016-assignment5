@@ -60,6 +60,7 @@
             this.ReelOnePictureBox.Location = new System.Drawing.Point(60, 225);
             this.ReelOnePictureBox.Name = "ReelOnePictureBox";
             this.ReelOnePictureBox.Size = new System.Drawing.Size(83, 129);
+            this.ReelOnePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ReelOnePictureBox.TabIndex = 7;
             this.ReelOnePictureBox.TabStop = false;
             // 
@@ -69,6 +70,7 @@
             this.ReelThreePictureBox.Location = new System.Drawing.Point(320, 225);
             this.ReelThreePictureBox.Name = "ReelThreePictureBox";
             this.ReelThreePictureBox.Size = new System.Drawing.Size(83, 129);
+            this.ReelThreePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ReelThreePictureBox.TabIndex = 8;
             this.ReelThreePictureBox.TabStop = false;
             // 
@@ -78,6 +80,7 @@
             this.ReelTwoPictureBox.Location = new System.Drawing.Point(190, 225);
             this.ReelTwoPictureBox.Name = "ReelTwoPictureBox";
             this.ReelTwoPictureBox.Size = new System.Drawing.Size(83, 129);
+            this.ReelTwoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ReelTwoPictureBox.TabIndex = 9;
             this.ReelTwoPictureBox.TabStop = false;
             // 
@@ -85,7 +88,7 @@
             // 
             this.ResetPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.ResetPictureBox.Image = global::SlotMachine.Properties.Resources.reset;
-            this.ResetPictureBox.Location = new System.Drawing.Point(37, 436);
+            this.ResetPictureBox.Location = new System.Drawing.Point(41, 436);
             this.ResetPictureBox.Name = "ResetPictureBox";
             this.ResetPictureBox.Size = new System.Drawing.Size(60, 50);
             this.ResetPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
