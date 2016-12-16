@@ -80,6 +80,10 @@ namespace SlotMachine
             winNumber = 0;
             lossNumber = 0;
             winRatio = 0.0f;
+
+            ReelOnePictureBox.Image = Properties.Resources.blank;
+            ReelTwoPictureBox.Image = Properties.Resources.blank;
+            ReelThreePictureBox.Image = Properties.Resources.blank;
         }
 
         /* Check to see if the player won the jackpot */
@@ -125,6 +129,7 @@ namespace SlotMachine
         private string[] Reels()
         {
             string[] betLine = { " ", " ", " " };
+            PictureBox[] reel = { ReelOnePictureBox, ReelTwoPictureBox, ReelThreePictureBox };
             int[] outCome = { 0, 0, 0 };
 
             for (var spin = 0; spin < 3; spin++)
@@ -133,34 +138,42 @@ namespace SlotMachine
 
                if (checkRange(outCome[spin], 1, 27)) {  // 41.5% probability
                     betLine[spin] = "blank";
+                    reel[spin].Image = Properties.Resources.blank;
                     blanks++;
                     }
                 else if (checkRange(outCome[spin], 28, 37)){ // 15.4% probability
                     betLine[spin] = "Grapes";
+                    reel[spin].Image = Properties.Resources.grapes;
                     grapes++;
                 }
                 else if (checkRange(outCome[spin], 38, 46)){ // 13.8% probability
                     betLine[spin] = "Banana";
+                    reel[spin].Image = Properties.Resources.banana;
                     bananas++;
                 }
                 else if (checkRange(outCome[spin], 47, 54)){ // 12.3% probability
                     betLine[spin] = "Orange";
+                    reel[spin].Image = Properties.Resources.orange;
                     oranges++;
                 }
                 else if (checkRange(outCome[spin], 55, 59)){ //  7.7% probability
                     betLine[spin] = "Cherry";
+                    reel[spin].Image = Properties.Resources.cherry;
                     cherries++;
                 }
                 else if (checkRange(outCome[spin], 60, 62)){ //  4.6% probability
                     betLine[spin] = "Bar";
+                    reel[spin].Image = Properties.Resources.bar;
                     bars++;
                 }
                 else if (checkRange(outCome[spin], 63, 64)){ //  3.1% probability
                     betLine[spin] = "Bell";
+                    reel[spin].Image = Properties.Resources.bell;
                     bells++;
                 }
                 else if (checkRange(outCome[spin], 65, 65)){ //  1.5% probability
                     betLine[spin] = "Seven";
+                    reel[spin].Image = Properties.Resources.seven;
                     sevens++;
                 }
 
@@ -250,7 +263,7 @@ namespace SlotMachine
 
         private void SpinPictureBox_Click(object sender, EventArgs e)
         {
-            playerBet = 10; // default bet amount
+            
 
             if (playerMoney == 0)
             {
@@ -271,15 +284,81 @@ namespace SlotMachine
             else if (playerBet <= playerMoney)
             {
                 spinResult = Reels();
-                fruits = spinResult[0] + " - " + spinResult[1] + " - " + spinResult[2];
-                MessageBox.Show(fruits);
                 determineWinnings();
                 turn++;
+                TotalCreditsTextBox.Text = playerMoney.ToString();
+                BetTextBox.Text = "0";
+                playerBet = 0; 
                 showPlayerStats();
             }
             else
             {
                 MessageBox.Show("Please enter a valid bet amount");
+            }
+        }
+
+        private void ResetPictureBox_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are You Sure?", "Are you sure you want to reset the game? your stats will be wiped out.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                resetAll();
+                TotalCreditsTextBox.Text = playerMoney.ToString();
+                BetTextBox.Text = "0";
+                
+            }
+        }
+
+        private void SlotMachineForm_Load(object sender, EventArgs e)
+        {
+            TotalCreditsTextBox.Text = playerMoney.ToString();
+            JackpotTextBox.Text = jackpot.ToString();
+        }
+
+        private void checkFunds(int bet)
+        {
+            if (playerMoney == 0)
+            {
+                if (MessageBox.Show("You ran out of Money! \nDo you want to play again?", "Out of Money!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    resetAll();
+                    showPlayerStats();
+                }
+            }
+            else if (playerBet > playerMoney)
+            {
+                MessageBox.Show("You don't have enough Money to place that bet.", "Insufficient Funds");
+            }
+            else if (playerBet < 0)
+            {
+                MessageBox.Show("All bets must be a positive $ amount.", "Incorrect Bet");
+            }
+            else if (playerBet <= playerMoney)
+            {
+                playerBet += bet;
+                TotalCreditsTextBox.Text = playerMoney.ToString();
+                BetTextBox.Text = playerBet.ToString();
+            }
+        }
+        private void BetOnePictureBox_Click(object sender, EventArgs e)
+        {
+            checkFunds(1);
+        }
+        private void BetTenPictureBox_Click(object sender, EventArgs e)
+        {
+            checkFunds(10);
+        }
+
+        private void BetHundredPictureBox_Click(object sender, EventArgs e)
+        {
+            checkFunds(100); 
+        }
+
+        private void ResetBetButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are You Sure?", "Are you sure you want to reset your bet?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                playerBet = 0;
+                BetTextBox.Text = playerBet.ToString();
             }
         }
     }

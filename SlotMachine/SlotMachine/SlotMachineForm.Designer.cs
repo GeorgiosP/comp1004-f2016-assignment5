@@ -34,6 +34,8 @@
             this.ReelTwoPictureBox = new System.Windows.Forms.PictureBox();
             this.ResetPictureBox = new System.Windows.Forms.PictureBox();
             this.SlotMachinePictureBox = new System.Windows.Forms.PictureBox();
+            this.TotalCreditsTextBox = new System.Windows.Forms.TextBox();
+            this.WinnerPaidTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.SpinPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReelOnePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReelThreePictureBox)).BeginInit();
@@ -94,7 +96,7 @@
             this.ResetPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ResetPictureBox.TabIndex = 10;
             this.ResetPictureBox.TabStop = false;
-            this.ResetPictureBox.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.ResetPictureBox.Click += new System.EventHandler(this.ResetPictureBox_Click);
             // 
             // SlotMachinePictureBox
             // 
@@ -106,12 +108,36 @@
             this.SlotMachinePictureBox.TabIndex = 11;
             this.SlotMachinePictureBox.TabStop = false;
             // 
+            // TotalCreditsTextBox
+            // 
+            this.TotalCreditsTextBox.BackColor = System.Drawing.SystemColors.ControlText;
+            this.TotalCreditsTextBox.Enabled = false;
+            this.TotalCreditsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalCreditsTextBox.ForeColor = System.Drawing.Color.Red;
+            this.TotalCreditsTextBox.Location = new System.Drawing.Point(43, 380);
+            this.TotalCreditsTextBox.Name = "TotalCreditsTextBox";
+            this.TotalCreditsTextBox.Size = new System.Drawing.Size(124, 22);
+            this.TotalCreditsTextBox.TabIndex = 12;
+            // 
+            // WinnerPaidTextBox
+            // 
+            this.WinnerPaidTextBox.BackColor = System.Drawing.SystemColors.ControlText;
+            this.WinnerPaidTextBox.Enabled = false;
+            this.WinnerPaidTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WinnerPaidTextBox.ForeColor = System.Drawing.Color.Red;
+            this.WinnerPaidTextBox.Location = new System.Drawing.Point(291, 380);
+            this.WinnerPaidTextBox.Name = "WinnerPaidTextBox";
+            this.WinnerPaidTextBox.Size = new System.Drawing.Size(124, 22);
+            this.WinnerPaidTextBox.TabIndex = 13;
+            // 
             // SlotMachineForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(462, 533);
+            this.Controls.Add(this.WinnerPaidTextBox);
+            this.Controls.Add(this.TotalCreditsTextBox);
             this.Controls.Add(this.ResetPictureBox);
             this.Controls.Add(this.ReelTwoPictureBox);
             this.Controls.Add(this.ReelThreePictureBox);
@@ -124,6 +150,7 @@
             this.Name = "SlotMachineForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Slot Machine";
+            this.Load += new System.EventHandler(this.SlotMachineForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SpinPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReelOnePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReelThreePictureBox)).EndInit();
@@ -131,6 +158,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ResetPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SlotMachinePictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -141,5 +169,7 @@
         private System.Windows.Forms.PictureBox ReelTwoPictureBox;
         private System.Windows.Forms.PictureBox ResetPictureBox;
         private System.Windows.Forms.PictureBox SlotMachinePictureBox;
+        private System.Windows.Forms.TextBox TotalCreditsTextBox;
+        private System.Windows.Forms.TextBox WinnerPaidTextBox;
     }
 }
