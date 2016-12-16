@@ -8,7 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/*
+ * COMP1004 Rapid Application Development Fall 2016 
+ * Assignment 5 
+ * 12/16/2016
+ * Georgios Psarakis
+ */
 namespace SlotMachine
 {
     public partial class SlotMachineForm : Form
@@ -328,7 +333,11 @@ namespace SlotMachine
             TotalCreditsTextBox.Text = playerMoney.ToString();
             JackpotTextBox.Text = jackpot.ToString();
         }
-
+        /*
+         * checkFunds will accpet an int 
+         * for the users bet and check to see if they 
+         * place said bet 
+         */
         private void checkFunds(int bet)
         {
             if (playerMoney == 0)
